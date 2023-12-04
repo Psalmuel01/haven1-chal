@@ -42,7 +42,7 @@ contract AcademicCredentialVerifier is Ownable {
         if (proofOfIdentityContract.isSuspended(msg.sender)) revert IdentitySuspended();
 
         (uint256 competencyRating, , ) = proofOfIdentityContract.getCompetencyRating(msg.sender);
-        if (competencyRating < 100) revert InsufficientCompetencyRating();
+        if (competencyRating < 75) revert InsufficientCompetencyRating();
 
         AcademicCredential memory newCredential = AcademicCredential({
             institution: institution,
